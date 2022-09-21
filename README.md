@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2021 Andreas Schmidt <andreas.schmidt@iese.fraunhofer.de>
+SPDX-FileCopyrightText: 2022 Andreas Schmidt <andreas.schmidt@iese.fraunhofer.de>
 
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->

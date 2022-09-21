@@ -1,0 +1,42 @@
+<!--
+SPDX-FileCopyrightText: 2022 Andreas Schmidt <andreas.schmidt@iese.fraunhofer.de>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+﻿<?xml version="1.0" encoding="ASCII"?>
+<allInOne:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allInOne="allInOnePkg" xsi:schemaLocation="allInOnePkg ../metamodel/allInOneMetaModel.ecore" globalId="42" name="TBA" description="">
+  <configurations name="configuration" description="" configurationRanking="1">
+    <conSert name="consert" description="">
+        <guarantees name="SG4" description="">
+            <safetyProperties name="" description="">
+                <refinement name="Near Environment Unoccupied by Humans" description=""/>
+            </safetyProperties>
+        </guarantees>
+        <guarantees name="SG5" description="">
+            <safetyProperties name="" description="">
+                <refinement name="Far Environment Unoccupied by Humans" description=""/>
+            </safetyProperties>
+        </guarantees>
+        <runtimeEvidence name="RtE3" description="Near Zone Unoccupied."/>
+        <runtimeEvidence name="RtE4" description="Approximation Speed of Detected Object &lt;= 1m&#x2f;s"/>
+        <runtimeEvidence name="RtE5" description="Installation Approved by Health and Safety Engineer"/>
+        <runtimeEvidence name="RtE6" description="Far Zone Unoccupied."/>
+        <runtimeEvidence name="RtE7" description="Approximation Speed of Detected Object &lt;= 2m&#x2f;s"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@runtimeEvidence.0" targetElement="//@configurations.0/@conSert/@gates.0"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@runtimeEvidence.1" targetElement="//@configurations.0/@conSert/@gates.0"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@gates.0" targetElement="//@configurations.0/@conSert/@gates.1"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@runtimeEvidence.2" targetElement="//@configurations.0/@conSert/@gates.1"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@gates.1" targetElement="//@configurations.0/@conSert/@guarantees.0"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@runtimeEvidence.3" targetElement="//@configurations.0/@conSert/@gates.2"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@runtimeEvidence.4" targetElement="//@configurations.0/@conSert/@gates.2"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@gates.2" targetElement="//@configurations.0/@conSert/@gates.3"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@runtimeEvidence.2" targetElement="//@configurations.0/@conSert/@gates.3"/>
+        <guaranteePropagation sourceElement="//@configurations.0/@conSert/@gates.3" targetElement="//@configurations.0/@conSert/@guarantees.1"/>
+        <gates name="Or_0" gateType="Or"/>
+        <gates name="And_1" gateType="And"/>
+        <gates name="Or_2" gateType="Or"/>
+        <gates name="And_3" gateType="And"/>
+        </conSert>
+  </configurations>
+</allInOne:System>

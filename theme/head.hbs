@@ -1,0 +1,35 @@
+<!--
+SPDX-FileCopyrightText: 2022 Andreas Schmidt <andreas.schmidt@iese.fraunhofer.de>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+<script src="https://d3js.org/d3.v4.min.js" crossorigin="anonymous"></script>
+<script>
+    function zoom_image(element_id) {
+        window.addEventListener("load", function () {
+            // Replace Image with SVG Region
+            var img = d3.select(element_id).attr("width", "100%");
+            var box = img.node().getBoundingClientRect();
+            var width = box.width;
+            var height = box.height;
+            var content = img.select(function () { return this.parentNode; });
+            var svg = content.insert("svg", element_id + " + *");
+            let g = svg.append("g");
+            g.append("image").attr("href", img.attr("src")).attr("width", "100%");
+            img.remove();
+
+            // Zoom & Pan
+            var text = svg.append("text");
+            text.classed("pan-zoom", true).attr("x", width - 100).attr("y", 20).text("Pan & Zoom");
+            g.call(d3.zoom().scaleExtent([1, 3]).translateExtent([[0, 0], [width, height]]).on("zoom", function () {
+                g.attr("transform", d3.event.transform);
+                text.style("display", "none");
+            }));
+
+            // Style SVG
+            svg.style("height", height + "px");
+            svg.style("border", "1px solid #666");
+        });
+    }
+</script>
